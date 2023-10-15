@@ -34,9 +34,9 @@ export default class Chokepoint {
       request.pipe(proxyRequest, { end: true });
       proxyRequest.on("error", (error) => {
         const header = { "Content-Type": "application/json" };
-        response.writeHead(500, header);
-        const message = `No response from ${node.host}:${node.port}: ${error.message}`;
-        const output = JSON.stringify({ error: { message } });
+        response.writeHead(503, header);
+        const message = `${node.host}:${node.port} inactive: ${error.message}`;
+        const output = JSON.stringify({ message });
         response.end(output);
       });
     });

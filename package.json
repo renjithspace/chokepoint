@@ -1,7 +1,7 @@
 {
   "name": "chokepoint",
   "description": "Node.js load balancer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "dist/Chokepoint.js",
   "license": "MIT",
   "repository": "renjithspace/chokepoint",
