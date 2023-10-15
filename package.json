@@ -6,10 +6,10 @@
   "license": "MIT",
   "repository": "renjithspace/chokepoint",
   "author": {
-		"name": "Renjith VK",
-		"email": "renjithrajeevvk@gmail.com",
-		"url": "https://linkedin.com/in/renjithspace"
-	},
+    "name": "Renjith VK",
+    "email": "renjithrajeevvk@gmail.com",
+    "url": "https://linkedin.com/in/renjithspace"
+  },
   "devDependencies": {
     "@types/node": "^20.8.6",
     "ts-node": "^10.9.1",
