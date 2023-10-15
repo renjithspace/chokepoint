@@ -1,11 +1,11 @@
-### Chockpoint
-Node.js load balance
+### Chokepoint
+Node.js load balancer
 
 ### Usage
 ```js
-import Chockpoint from "chockpoint";
+import Chokepoint from "chokepoint";
 
-const chockpoint = new Chockpoint(
+const chokepoint = new Chokepoint(
   [
     { host: "localhost", port: 8001 },
     { host: "localhost", port: 8002 },
@@ -14,7 +14,7 @@ const chockpoint = new Chockpoint(
   "roundRobin"
 );
 
-chockpoint.listen(8000, () => {
+chokepoint.listen(8000, () => {
   console.log("Load balancer is running");
 });
 ```

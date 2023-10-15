@@ -1,17 +1,17 @@
 import http from "http";
-import Method, { ChockpointNode } from "./Method";
-import MethodFactory, { ChockpointMethod } from "./MethodFactory";
+import Method, { ChokepointNode } from "./Method";
+import MethodFactory, { ChokepointMethod } from "./MethodFactory";
 
-type ChockpointListenCallback = () => void;
+type ChokepointListenCallback = () => void;
 
-export default class Chockpoint {
+export default class Chokepoint {
   private method: Method;
 
-  constructor(nodes: ChockpointNode[], method: ChockpointMethod) {
+  constructor(nodes: ChokepointNode[], method: ChokepointMethod) {
     this.method = new MethodFactory(method).create(nodes);
   }
 
-  listen(port: number, callback: ChockpointListenCallback) {
+  listen(port: number, callback: ChokepointListenCallback) {
     const server = http.createServer((request, response) => {
       const node = this.method.node();
       const proxyOptions = {

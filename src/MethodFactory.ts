@@ -1,14 +1,14 @@
-import Method, { ChockpointNode } from "./Method";
+import Method, { ChokepointNode } from "./Method";
 import RoundRobinMethod from "./methods/RoundRobinMethod";
 
-export enum ChockpointMethod {
+export enum ChokepointMethod {
   roundRobin = "roundRobin",
 }
 
 export default class MethodFactory {
-  constructor(private method: ChockpointMethod) {}
+  constructor(private method: ChokepointMethod) {}
 
-  create(nodes: ChockpointNode[]): Method {
+  create(nodes: ChokepointNode[]): Method {
     switch (this.method) {
       default:
         return new RoundRobinMethod(nodes);

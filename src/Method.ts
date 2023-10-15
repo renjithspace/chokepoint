@@ -1,17 +1,17 @@
-export interface ChockpointNode {
+export interface ChokepointNode {
   host: string;
   port: number;
 }
 
 export default abstract class Method {
-  protected nodes: ChockpointNode[];
+  protected nodes: ChokepointNode[];
   protected index: number;
 
-  constructor(nodes: ChockpointNode[]) {
-    if (nodes.length === 0) throw new Error("No chockpoint nodes provided");
+  constructor(nodes: ChokepointNode[]) {
+    if (nodes.length === 0) throw new Error("No chokepoint nodes provided");
     this.nodes = nodes;
     this.index = 0;
   }
 
-  abstract node(): ChockpointNode;
+  abstract node(): ChokepointNode;
 }
