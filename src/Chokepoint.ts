@@ -1,19 +1,23 @@
 import http from "http";
-import Method, { ChokepointNode } from "./Method";
-import MethodFactory, { ChokepointMethod } from "./MethodFactory";
+import RoundRobin from "./RoundRobin";
 
-type ChokepointListenCallback = () => void;
+export type ChokepointListenCallback = () => void;
+
+export interface ChokepointNode {
+  host: string;
+  port: number;
+}
 
 export default class Chokepoint {
-  private method: Method;
+  private roundRobin: RoundRobin;
 
-  constructor(nodes: ChokepointNode[], method: ChokepointMethod) {
-    this.method = new MethodFactory(method).create(nodes);
+  constructor(nodes: ChokepointNode[]) {
+    this.roundRobin = new RoundRobin(nodes);
   }
 
   listen(port: number, callback: ChokepointListenCallback) {
     const server = http.createServer((request, response) => {
-      const node = this.method.node();
+      const node = this.roundRobin.node();
       const proxyOptions = {
         hostname: node.host,
         port: node.port,
