@@ -1,6 +1,8 @@
 ### Chokepoint
 Chokepoint is a powerful Node.js package designed to streamline load balancing in your applications. It distributes incoming traffic across multiple nodes using Round Robin algorithm, ensuring optimal resource utilization and enhanced performance.
 
+![NPM](https://img.shields.io/npm/l/chokepoint) ![npm](https://img.shields.io/npm/v/chokepoint) ![GitHub contributors](https://img.shields.io/github/contributors/renjithspace/chokepoint) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/renjithspace/chokepoint/main) ![npm](https://img.shields.io/npm/dw/chokepoint)
+
 ### Usage
 ```ts
 import Chokepoint from "chokepoint";
