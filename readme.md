@@ -18,3 +18,5 @@ chokepoint.listen(8000, () => {
   console.log("Load balancer is running");
 });
 ```
+
+🚀 Excited to kickstart this project! Your support means the world to us. Please give us a star ⭐️ on GitHub to show your encouragement and help us grow! Let's build something amazing together! 🌟

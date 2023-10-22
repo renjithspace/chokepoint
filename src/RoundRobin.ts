@@ -1,16 +1,19 @@
-import { ChokepointNode } from "./Chokepoint";
+export interface Node {
+  host: string;
+  port: number;
+}
 
 export default class RoundRobin {
-  private nodes: ChokepointNode[];
+  private nodes: Node[];
   private index: number;
 
-  constructor(nodes: ChokepointNode[]) {
+  constructor(nodes: Node[]) {
     if (nodes.length === 0) throw new Error("No chokepoint nodes provided");
     this.nodes = nodes;
     this.index = 0;
   }
 
-  node(): ChokepointNode {
+  node(): Node {
     const node = this.nodes[this.index];
     this.index = (this.index + 1) % this.nodes.length;
     return node;
