@@ -1,13 +1,21 @@
+import https from "https";
 import http, { IncomingMessage, ServerResponse } from "http";
+import { SecureContextOptions } from "tls";
 import { Node } from "./RoundRobin";
 
 export default class Proxy {
   private request: IncomingMessage;
   private response: ServerResponse;
+  private secureOptions?: SecureContextOptions;
 
-  constructor(request: IncomingMessage, response: ServerResponse) {
+  constructor(
+    request: IncomingMessage,
+    response: ServerResponse,
+    secureOptions?: SecureContextOptions
+  ) {
     this.request = request;
     this.response = response;
+    this.secureOptions = secureOptions;
   }
 
   route(node: Node) {
@@ -18,7 +26,8 @@ export default class Proxy {
       method: this.request.method,
       headers: this.request.headers,
     };
-    const proxyRequest = http.request(proxyOptions, (proxyResponse) => {
+    const protocol = this.secureOptions ? https : http;
+    const proxyRequest = protocol.request(proxyOptions, (proxyResponse) => {
       if (proxyResponse.statusCode) {
         this.response.writeHead(
           proxyResponse.statusCode,
