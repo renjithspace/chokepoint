@@ -3,3 +3,5 @@ src/
 yarn.lock
 *.log
 tsconfig.json
+*.pem
+test.ts
