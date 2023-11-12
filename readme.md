@@ -32,12 +32,31 @@ const chokepoint = new Chokepoint(nodes);
 
 // Configure SSL certificate before listen
 chokepoint.secure({
-  key: fs.readFileSync("./localhost-key.pem"),
-  cert: fs.readFileSync("./localhost.pem"),
+  key: fs.readFileSync("./ssl-key.pem"),
+  cert: fs.readFileSync("./ssl-cert.pem"),
 });
 
 chokepoint.listen(443, () => {
   console.log("Secure load balancer is running");
+});
+```
+
+### Enable CORS
+```ts
+import Chokepoint from "chokepoint";
+
+const nodes = [
+  { host: "localhost", port: 8001 },
+  { host: "localhost", port: 8002 },
+  { host: "localhost", port: 8003 },
+];
+const chokepoint = new Chokepoint(nodes);
+
+// Enable CORS for your request origins before listen
+chokepoint.cors(["https://example.com"]);
+
+chokepoint.listen(80, () => {
+  console.log("Load balancer is running");
 });
 ```
 

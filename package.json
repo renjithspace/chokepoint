@@ -1,7 +1,7 @@
 {
   "name": "chokepoint",
   "description": "Node.js load balancer",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "dist/Chokepoint.js",
   "keywords": ["load balance", "high availability", "scalability", "traffic distribution"],
   "license": "MIT",
